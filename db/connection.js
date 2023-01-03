@@ -1,19 +1,22 @@
 import mongoose from 'mongoose';
 import chalk from 'chalk';
-
-const url = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/showcase'
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 let mongooseConfig = {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useUnifiedTopology: true
 }
 
-mongoose
-  .set('strictQuery', false)
-  .connect(url, mongooseConfig)
-  .catch((error) => {
-    console.log(`Error connecting to MongoDB: ${error.message}`);
-  });
+mongoose.set("returnOriginal", false);
+
+const connectionString = process.env.MONGO_URL || "mongodb://127.0.0.1:27017/showcase"
+
+  mongoose
+    .connect(connectionString, mongooseConfig)
+    .catch((error) => {
+      console.log(`Error connecting to MongoDB: ${error.message}`);
+    });
 
 mongoose.connection.on("disconnected", () => {
   console.log(chalk.bold("Disconnected from MongoDB!"));
