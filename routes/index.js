@@ -6,7 +6,7 @@ const router = Router();
 router.get("/", (req, res) => res.send("Welcome to the Showcase API!"));
 
 router.use("/creators", creatorRoutes);
-// router.use("/items", itemRoutes);
-// router.use("/spaces", spaceRoutes);
+router.use("/items", itemRoutes);
+router.use("/spaces", spaceRoutes);
 
 export default router
