@@ -17,7 +17,5 @@ app.use("/", routes);
 db.on("connected", () => {
   console.clear();
   console.log(chalk.blue("Connected to MongoDB!"));
-  app.listen(port, () => {
-    console.log(`server running on ${port}`);
-  });
+  app.listen(port, () => console.log(`app listening on port ${port}`))
 });
