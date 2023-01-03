@@ -1,5 +1,7 @@
 import { Router } from 'express';
 import creatorRoutes from './creators.js';
+import itemRoutes from './items.js';
+import spaceRoutes from './spaces.js';
 
 const router = Router();
 

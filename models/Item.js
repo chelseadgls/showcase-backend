@@ -8,7 +8,7 @@ fields: [{
   Name: { type : String},
   Creator: { type: Array},
   Spaces: { type: Array},
-  Category: { type: String },
+  Category: { type: Array },
 }]
 })
 
