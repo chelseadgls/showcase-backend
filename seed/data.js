@@ -54,16 +54,3 @@ export const retrieveCreators = async () => {
   //       throw error;
   //     }
   //     };
-
-let insertData = async () => {
-  await Creator.deleteMany({});
-  await Item.deleteMany({});
-  let Space.deleteMany({});
-  await Creator.create(structuredCreatorData);
-  await Item.create(structuredItemData);
-  await Space.create(structuredSpaceData);
-  console.log('Creators, Items, Spaces inserted.')
-  // mongoose.disconnect();
-};
-
-insertData();
