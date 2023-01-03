@@ -7,7 +7,7 @@ import Creator from '../models/Creator.js';
 
 let allCreators = {};
 let allItems = {};
-import allSpaces = {};
+let allSpaces = {};
 
 
 //retrieve data

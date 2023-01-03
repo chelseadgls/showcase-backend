@@ -5,7 +5,7 @@ const creatorSchema = new mongoose.Schema({
 id: { type: String },
 createdTime: { type: Date },
 fields: [{ 
-  Name: { type : String}.
+  Name: { type : String},
   Items: { type: Array},
   Spaces: { type: Array},
 }]
