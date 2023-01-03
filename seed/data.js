@@ -10,6 +10,7 @@ let allItems = {};
 import allSpaces = {};
 
 
+//retrieve data
 export const retrieveCreators = async () => {
   try {
     const response = await axios.get(
@@ -18,9 +19,11 @@ export const retrieveCreators = async () => {
     // console.log(response.data);
     let creatorsData = response.data;
     let structuredCreatorsData = creatorsData.map(
-      ({}) => {
+      ({ id, createdTime, fields }) => {
         return {
-
+          id,
+          createdTime,
+          fields,
         };
       }
     );
@@ -54,3 +57,41 @@ export const retrieveCreators = async () => {
   //       throw error;
   //     }
   //     };
+
+
+//write data
+  async function writeCreatorData() {
+    try {
+      await fs.writeFile(
+        "./seed/creatorData.json",
+        JSON.stringify(allCreators),
+        (err) => {
+          if (err) throw err;
+          console.log("Creator Data has been written to file successfully.")
+        }
+      );
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+//insert data
+  async function insertCreators() {
+    try {
+      await retrieveCreators();
+      await Creator.create(allCreators);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  //main function
+  async function insertSeedData(){
+    await db.dropDatabase();
+    await insertCreators();
+    // await insertItems();
+    // await insertSpaces();
+    await db.close();
+  }
+
+  insertSeedData();
