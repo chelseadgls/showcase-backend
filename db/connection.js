@@ -1,9 +1,11 @@
 import mongoose from 'mongoose';
 import chalk from 'chalk';
 
+const url = process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/showcase'
+
 mongoose
   .set('strictQuery', false)
-  .connect("mongodb://127.0.0.1:27017/showcase", {useNewUrlParser: true})
+  .connect(url, mongooseConfig)
   .catch((error) => {
     console.log(`Error connecting to MongoDB: ${error.message}`);
   });

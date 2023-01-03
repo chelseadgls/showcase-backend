@@ -118,7 +118,7 @@ export const retrieveCreators = async () => {
         JSON.stringify(allSpaces),
         (err) => {
           if (err) throw err;
-          console.log("Item Data has been written to file successfully.")
+          console.log("Space Data has been written to file successfully.")
         }
       );
     } catch (error) {
