@@ -5,10 +5,14 @@ const itemSchema = new mongoose.Schema({
 id: { type: String },
 createdTime: { type: Date },
 fields: [{ 
-  Name: { type : String},
-  Creator: { type: Array},
-  Spaces: { type: Array},
   Category: { type: Array },
+  Creator: { type: Array },
+  Description: { type: String },
+  Images: [{
+    url: { type: String },
+  }],
+  Name: { type: String },
+  Spaces: { type: Array},
 }]
 })
 
